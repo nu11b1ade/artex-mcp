@@ -37,6 +37,79 @@ Windows 使用虚拟环境的 `.venv\Scripts\python.exe`。其他 MCP 客户端�
 
 ARTEX 内置 Basic Auth 的 Cookie 和应用登录 JWT 由进程管理。能识别认证中间件拒绝的普通请求会续登后重试一次。上传遇到 401 时应先重新登录再重试。登出清除 MCP 的会话，ARTEX 发出的其他 JWT 仍按服务端有效期处理。
 
+## 安装和连接 Pi
+
+在运行 Pi 的机器上安装依赖。已经克隆仓库时，从 `uv sync` 开始。
+
+```bash
+git clone https://github.com/nu11b1ade/artex-mcp.git
+cd artex-mcp
+uv sync --locked
+```
+
+将 `artex` 条目合并到 `~/.pi/agent/mcp.json` 的 `mcpServers` 下，保留已有服务器。以下示例对应启用了 Basic Auth、使用自签证书的 ARTEX 实例。所有文件路径都是 **Pi 所在机器**上的绝对路径。
+
+```json
+{
+  "mcpServers": {
+    "artex": {
+      "command": "/absolute/artex-mcp/.venv/bin/python",
+      "args": ["/absolute/artex-mcp/artex_mcp.py"],
+      "timeout": 180,
+      "env": {
+        "ARTEX_URL": "https://artex.example.com",
+        "ARTEX_CA_FILE": "/absolute/certs/artex-ca.pem",
+        "ARTEX_BASIC_USER": "artex",
+        "ARTEX_BASIC_PASSWORD_FILE": "/absolute/secrets/artex-basic",
+        "ARTEX_ADMIN_PASSWORD_FILE": "/absolute/secrets/artex-admin"
+      }
+    }
+  }
+}
+```
+
+- 使用系统已信任的证书时可省略 `ARTEX_CA_FILE`。未开启 Basic Auth 时可省略两项 Basic 配置。示例中的 `artex` 是实测实例的 **Basic 网关用户名**，其他实例请填写实际值。应用登录用户名由 MCP 按 ARTEX 接口要求发送为大写 `ARTEX`。
+- 支持内置 MCP 的 Pi 可运行 `pi mcp list` 查看 stdio 连接，再在会话中用 `/reload` 读取修改后的配置，通过 `/mcp` 查看工具。若已使用 `pi-mcp-adapter`，将同一个 `mcpServers.artex` 条目合并到它当前读取的配置，再重启 Pi。参考 [Pi MCP 文档](https://pi.dev/docs/latest/mcp) 和 [适配器配置文档](https://github.com/nicobailon/pi-mcp-adapter/blob/main/docs/configuration.md)。
+- stdio 连接成功后，让 Pi 依次调用 `artex_status`、`artex_login`、`artex_call(method="GET", route="/api/tasks")`。最后一步可验证 Pi、MCP 和 ARTEX 的认证链路。
+
+### Pi 中的 TLS 和 Basic Auth 排障
+
+如果 `pi mcp list` 显示 MCP 已连接，而 `artex_status` 报 transport 失败，先检查 MCP 到 ARTEX 的 HTTPS。自签叶证书用已从可信渠道取得的服务端证书 PEM，私有 CA 签发的证书用 CA PEM。把文件放在 Pi 机器上，在 MCP 的 `env` 中设置 `ARTEX_CA_FILE`，并确认 `ARTEX_URL` 中的域名或 IP 在证书 SAN 里。修改配置后重新加载 Pi。
+
+若已收到 HTTP 401，再检查认证。ARTEX 内置 Basic 网关发放的是 Cookie。直连时按顺序完成这三步：
+
+1. 带 Basic 凭据请求 `GET /api/basic-auth/check`，保存响应的网关 Cookie。
+2. 带同一个 Cookie 请求 `POST /api/auth/login`，用应用账号 `ARTEX` 和管理员密码换取 JWT。
+3. 请求 `GET /api/tasks` 时，同时发送网关 Cookie 和 `Authorization: Bearer <JWT>`。MCP 会自动保留 Cookie 并为业务请求附上 Bearer。
+
+可用下面的命令在 Pi 机器上只读验证链路。`curl` 会提示输入 Basic 密码。应用管理员密码从本地文件读取。
+
+```bash
+(
+  set -e
+  set -o pipefail
+  umask 077
+  url=https://artex.example.com
+  ca=/absolute/certs/artex-ca.pem
+  admin_file=/absolute/secrets/artex-admin
+  jar=$(mktemp)
+  trap 'rm -f "$jar"' EXIT
+
+  curl -fsS --cacert "$ca" --user artex --cookie-jar "$jar" \
+    "$url/api/basic-auth/check"
+
+  token=$(
+    jq -Rs '{username:"ARTEX",password:(rtrimstr("\n") | rtrimstr("\r"))}' "$admin_file" |
+      curl -fsS --cacert "$ca" --cookie "$jar" --cookie-jar "$jar" \
+        -H 'Content-Type: application/json' --data-binary @- "$url/api/auth/login" |
+      jq -er '.token | strings | select(length > 0)'
+  )
+
+  printf 'Authorization: Bearer %s\n' "$token" |
+    curl -fsS --cacert "$ca" --cookie "$jar" --header @- "$url/api/tasks"
+)
+```
+
 ## 工具和使用示例
 
 | 工具 | 用途 |
