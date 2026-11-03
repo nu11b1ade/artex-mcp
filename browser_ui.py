@@ -72,7 +72,21 @@ class BrowserUI:
         response = await self.page.goto(self.base_url + "/api/auth/status", wait_until="domcontentloaded")
         if response is None or not response.ok:
             raise ValueError("Chromium could not establish an ARTEX Web session.")
-        await self.page.evaluate("(token) => localStorage.setItem('artex_token', token)", token)
+        expected_origin = origin(self.base_url)
+        # Routing hooks may see only the first URL in a redirect chain. Check
+        # the final response and guard the write inside the browser document.
+        if origin(response.url) != expected_origin or origin(self.page.url) != expected_origin:
+            raise ValueError("ARTEX sign-in left the configured Web origin.")
+        written = await self.page.evaluate(
+            """([token, baseUrl]) => {
+                if (location.origin !== new URL(baseUrl).origin) return false;
+                localStorage.setItem('artex_token', token);
+                return true;
+            }""",
+            [token, self.base_url],
+        )
+        if not written:
+            raise ValueError("ARTEX sign-in left the configured Web origin.")
         await self.page.goto(self.base_url + "/function/tasks", wait_until="domcontentloaded")
 
     async def operate(self, action, selector, value, destination, files):

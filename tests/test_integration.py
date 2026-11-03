@@ -10,6 +10,7 @@ import threading
 import unittest
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from unittest.mock import AsyncMock, Mock
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
@@ -212,6 +213,21 @@ class Integration(unittest.IsolatedAsyncioTestCase):
                 await call("artex_logout")
                 self.assertFalse((await call("artex_status"))["authenticated"])
                 await call("artex_browser", action="close")
+
+    async def test_browser_does_not_write_token_after_cross_origin_redirect(self):
+        sys.path.insert(0, str(ROOT))
+        from browser_ui import BrowserUI
+
+        browser = BrowserUI("https://artex.example", {})
+        browser.context = Mock(add_cookies=AsyncMock())
+        browser.page = Mock(
+            url="https://redirect.example/landing",
+            goto=AsyncMock(return_value=Mock(ok=True, url="https://redirect.example/landing")),
+            evaluate=AsyncMock(),
+        )
+        with self.assertRaisesRegex(ValueError, "left the configured Web origin"):
+            await browser.sign_in("fixture-token", None)
+        browser.page.evaluate.assert_not_awaited()
 
     def test_every_catalog_route_can_be_invoked(self):
         sys.path.insert(0, str(ROOT))
