@@ -24,7 +24,7 @@ mcp_servers:
     env:
       ARTEX_URL: https://artex.example.com
       ARTEX_ADMIN_PASSWORD_FILE: /absolute/secrets/artex-admin
-      ARTEX_BASIC_USER: artex-web
+      ARTEX_BASIC_USER: YOUR_BASIC_USERNAME
       ARTEX_BASIC_PASSWORD_FILE: /absolute/secrets/artex-basic
       ARTEX_TRANSFER_DIR: /absolute/artex-files
 ```
@@ -59,7 +59,7 @@ uv sync --locked
       "env": {
         "ARTEX_URL": "https://artex.example.com",
         "ARTEX_CA_FILE": "/absolute/certs/artex-ca.pem",
-        "ARTEX_BASIC_USER": "artex",
+        "ARTEX_BASIC_USER": "YOUR_BASIC_USERNAME",
         "ARTEX_BASIC_PASSWORD_FILE": "/absolute/secrets/artex-basic",
         "ARTEX_ADMIN_PASSWORD_FILE": "/absolute/secrets/artex-admin"
       }
@@ -68,7 +68,7 @@ uv sync --locked
 }
 ```
 
-- 使用系统已信任的证书时可省略 `ARTEX_CA_FILE`。未开启 Basic Auth 时可省略两项 Basic 配置。示例中的 `artex` 是实测实例的 **Basic 网关用户名**，其他实例请填写实际值。应用登录用户名由 MCP 按 ARTEX 接口要求发送为大写 `ARTEX`。
+- 使用系统已信任的证书时可省略 `ARTEX_CA_FILE`。未开启 Basic Auth 时可省略两项 Basic 配置。将 `YOUR_BASIC_USERNAME` 替换为你的 Basic 网关用户名。应用登录用户名由 MCP 按 ARTEX 接口要求发送为大写 `ARTEX`。
 - 支持内置 MCP 的 Pi 可运行 `pi mcp list` 查看 stdio 连接，再在会话中用 `/reload` 读取修改后的配置，通过 `/mcp` 查看工具。若已使用 `pi-mcp-adapter`，将同一个 `mcpServers.artex` 条目合并到它当前读取的配置，再重启 Pi。参考 [Pi MCP 文档](https://pi.dev/docs/latest/mcp) 和 [适配器配置文档](https://github.com/nicobailon/pi-mcp-adapter/blob/main/docs/configuration.md)。
 - stdio 连接成功后，让 Pi 依次调用 `artex_status`、`artex_login`、`artex_call(method="GET", route="/api/tasks")`。最后一步可验证 Pi、MCP 和 ARTEX 的认证链路。
 
@@ -82,7 +82,7 @@ uv sync --locked
 2. 带同一个 Cookie 请求 `POST /api/auth/login`，用应用账号 `ARTEX` 和管理员密码换取 JWT。
 3. 请求 `GET /api/tasks` 时，同时发送网关 Cookie 和 `Authorization: Bearer <JWT>`。MCP 会自动保留 Cookie 并为业务请求附上 Bearer。
 
-可用下面的命令在 Pi 机器上只读验证链路。`curl` 会提示输入 Basic 密码。应用管理员密码从本地文件读取。
+可用下面的命令在 Pi 机器上只读验证链路。先替换网关用户名，`curl` 会提示输入 Basic 密码。应用管理员密码从本地文件读取。
 
 ```bash
 (
@@ -91,11 +91,12 @@ uv sync --locked
   umask 077
   url=https://artex.example.com
   ca=/absolute/certs/artex-ca.pem
+  basic_user=YOUR_BASIC_USERNAME
   admin_file=/absolute/secrets/artex-admin
   jar=$(mktemp)
   trap 'rm -f "$jar"' EXIT
 
-  curl -fsS --cacert "$ca" --user artex --cookie-jar "$jar" \
+  curl -fsS --cacert "$ca" --user "$basic_user" --cookie-jar "$jar" \
     "$url/api/basic-auth/check"
 
   token=$(
