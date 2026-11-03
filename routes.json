@@ -1,0 +1,2540 @@
+{
+  "commit": "380930b08002102ea5220649de3a6842f32e6fc6",
+  "routes": {
+    "DELETE /api/agents/{key}": {
+      "method": "DELETE",
+      "path": "/api/agents/{key}",
+      "handler": "pgDeleteAgent",
+      "source": "server/server.go#L1050",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L319"
+    },
+    "DELETE /api/asset-intercept/rules/{id}": {
+      "method": "DELETE",
+      "path": "/api/asset-intercept/rules/{id}",
+      "handler": "assetInterceptDeleteRule",
+      "source": "server/server.go#L1130",
+      "kind": "http",
+      "handler_source": "server/asset_intercept.go#L82"
+    },
+    "DELETE /api/assets": {
+      "method": "DELETE",
+      "path": "/api/assets",
+      "handler": "deleteAssets",
+      "source": "server/server.go#L917",
+      "kind": "http",
+      "handler_source": "server/assets.go#L420"
+    },
+    "DELETE /api/companies/{id}": {
+      "method": "DELETE",
+      "path": "/api/companies/{id}",
+      "handler": "deleteCompany",
+      "source": "server/server.go#L923",
+      "kind": "http",
+      "handler_source": "server/assets.go#L247"
+    },
+    "DELETE /api/conversations/{id}": {
+      "method": "DELETE",
+      "path": "/api/conversations/{id}",
+      "handler": "pgDeleteConversation",
+      "source": "server/server.go#L1040",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L222"
+    },
+    "DELETE /api/conversations/{id}/side-questions": {
+      "method": "DELETE",
+      "path": "/api/conversations/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "DELETE /api/exploration/finding-cases/{id}/members/{fid}": {
+      "method": "DELETE",
+      "path": "/api/exploration/finding-cases/{id}/members/{fid}",
+      "handler": "removeFindingCaseMember",
+      "source": "server/server.go#L934",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L177"
+    },
+    "DELETE /api/exploration/findings/{id}": {
+      "method": "DELETE",
+      "path": "/api/exploration/findings/{id}",
+      "handler": "deleteFinding",
+      "source": "server/server.go#L953",
+      "kind": "http",
+      "handler_source": "server/server.go#L2677"
+    },
+    "DELETE /api/exploration/findings/{id}/traffic/{binding_id}": {
+      "method": "DELETE",
+      "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+      "handler": "editFindingTraffic",
+      "source": "server/finding_traffic.go#L87",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L185"
+    },
+    "DELETE /api/intercept/history/{id}/side-questions": {
+      "method": "DELETE",
+      "path": "/api/intercept/history/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "DELETE /api/intercept/rules/{id}": {
+      "method": "DELETE",
+      "path": "/api/intercept/rules/{id}",
+      "handler": "interceptDeleteRule",
+      "source": "server/server.go#L1123",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L211"
+    },
+    "DELETE /api/llm/profiles/{id}": {
+      "method": "DELETE",
+      "path": "/api/llm/profiles/{id}",
+      "handler": "pgDeleteProfile",
+      "source": "server/server.go#L1111",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1895"
+    },
+    "DELETE /api/llm/records": {
+      "method": "DELETE",
+      "path": "/api/llm/records",
+      "handler": "pgDeleteLLMRecords",
+      "source": "server/server.go#L980",
+      "kind": "http",
+      "handler_source": "server/commands.go#L134"
+    },
+    "DELETE /api/mcp/{id}": {
+      "method": "DELETE",
+      "path": "/api/mcp/{id}",
+      "handler": "pgDeleteMCP",
+      "source": "server/server.go#L1079",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L909"
+    },
+    "DELETE /api/notify/channels/{id}": {
+      "method": "DELETE",
+      "path": "/api/notify/channels/{id}",
+      "handler": "notifyDeleteChannel",
+      "source": "server/server.go#L1009",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L377"
+    },
+    "DELETE /api/schedules/{id}": {
+      "method": "DELETE",
+      "path": "/api/schedules/{id}",
+      "handler": "deleteSchedule",
+      "source": "server/server.go#L835",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L151"
+    },
+    "DELETE /api/settings/proxy-pool/{id}": {
+      "method": "DELETE",
+      "path": "/api/settings/proxy-pool/{id}",
+      "handler": "deleteProxyPool",
+      "source": "server/server.go#L1019",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L1027"
+    },
+    "DELETE /api/skills/{name}": {
+      "method": "DELETE",
+      "path": "/api/skills/{name}",
+      "handler": "fsDeleteSkill",
+      "source": "server/server.go#L1092",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1471"
+    },
+    "DELETE /api/skills/{name}/files/{file...}": {
+      "method": "DELETE",
+      "path": "/api/skills/{name}/files/{file...}",
+      "handler": "fsDeletePath",
+      "source": "server/server.go#L1101",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1699"
+    },
+    "DELETE /api/task-archives/{id}": {
+      "method": "DELETE",
+      "path": "/api/task-archives/{id}",
+      "handler": "queueTaskArchiveDelete",
+      "source": "server/server.go#L864",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L498"
+    },
+    "DELETE /api/task-categories/{id}": {
+      "method": "DELETE",
+      "path": "/api/task-categories/{id}",
+      "handler": "pgDeleteTaskCategory",
+      "source": "server/server.go#L842",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L105"
+    },
+    "DELETE /api/task-templates/{id}": {
+      "method": "DELETE",
+      "path": "/api/task-templates/{id}",
+      "handler": "pgDeleteTaskTemplate",
+      "source": "server/server.go#L847",
+      "kind": "http",
+      "handler_source": "server/task_templates.go#L226"
+    },
+    "DELETE /api/tasks/{id}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}",
+      "handler": "pgDeleteTask",
+      "source": "server/server.go#L1032",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L142"
+    },
+    "DELETE /api/tasks/{id}/assets/{assetID}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/assets/{assetID}",
+      "handler": "detachTaskAsset",
+      "source": "server/server.go#L877",
+      "kind": "http",
+      "handler_source": "server/task_assets.go#L70"
+    },
+    "DELETE /api/tasks/{id}/chat/side-questions": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/chat/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "DELETE /api/tasks/{id}/constraints/{cid}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/constraints/{cid}",
+      "handler": "deleteConstraint",
+      "source": "server/server.go#L899",
+      "kind": "http",
+      "handler_source": "server/constraints_api.go#L131"
+    },
+    "DELETE /api/tasks/{id}/goals/{gid}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/goals/{gid}",
+      "handler": "deleteGoal",
+      "source": "server/server.go#L895",
+      "kind": "http",
+      "handler_source": "server/goals_api.go#L139"
+    },
+    "DELETE /api/tasks/{id}/intents/{iid}/side-questions": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "DELETE /api/tasks/{id}/intercept-rules/{rid}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/intercept-rules/{rid}",
+      "handler": "taskInterceptDeleteRule",
+      "source": "server/server.go#L855",
+      "kind": "http",
+      "handler_source": "server/task_intercept.go#L139"
+    },
+    "DELETE /api/tasks/{id}/scope/{sid}": {
+      "method": "DELETE",
+      "path": "/api/tasks/{id}/scope/{sid}",
+      "handler": "taskScopeDelete",
+      "source": "server/server.go#L891",
+      "kind": "http",
+      "handler_source": "server/server.go#L2170"
+    },
+    "DELETE /api/tools/custom/{key}": {
+      "method": "DELETE",
+      "path": "/api/tools/custom/{key}",
+      "handler": "pgDeleteCustomTool",
+      "source": "server/server.go#L1073",
+      "kind": "http",
+      "handler_source": "server/customtool.go#L121"
+    },
+    "DELETE /api/traffic": {
+      "method": "DELETE",
+      "path": "/api/traffic",
+      "handler": "deleteTraffic",
+      "source": "server/server.go#L972",
+      "kind": "http",
+      "handler_source": "server/server.go#L3532"
+    },
+    "DELETE /api/traffic/all": {
+      "method": "DELETE",
+      "path": "/api/traffic/all",
+      "handler": "deleteAllTraffic",
+      "source": "server/server.go#L974",
+      "kind": "http",
+      "handler_source": "server/server.go#L3591"
+    },
+    "DELETE /api/traffic/hosts": {
+      "method": "DELETE",
+      "path": "/api/traffic/hosts",
+      "handler": "deleteTrafficHosts",
+      "source": "server/server.go#L973",
+      "kind": "http",
+      "handler_source": "server/server.go#L3555"
+    },
+    "DELETE /api/triggers/{id}": {
+      "method": "DELETE",
+      "path": "/api/triggers/{id}",
+      "handler": "pgDeleteTrigger",
+      "source": "server/server.go#L1061",
+      "kind": "http",
+      "handler_source": "server/triggers.go#L123"
+    },
+    "DELETE /api/workspace/delete": {
+      "method": "DELETE",
+      "path": "/api/workspace/delete",
+      "handler": "wsDelete",
+      "source": "server/server.go#L885",
+      "kind": "http",
+      "handler_source": "server/workspace.go#L191"
+    },
+    "GET /api/agents": {
+      "method": "GET",
+      "path": "/api/agents",
+      "handler": "pgListAgents",
+      "source": "server/server.go#L1046",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L231"
+    },
+    "GET /api/agents/{key}": {
+      "method": "GET",
+      "path": "/api/agents/{key}",
+      "handler": "pgGetAgent",
+      "source": "server/server.go#L1048",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L482"
+    },
+    "GET /api/agents/{key}/prompts": {
+      "method": "GET",
+      "path": "/api/agents/{key}/prompts",
+      "handler": "pgListPromptVersions",
+      "source": "server/server.go#L1062",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L672"
+    },
+    "GET /api/agents/{key}/triggers": {
+      "method": "GET",
+      "path": "/api/agents/{key}/triggers",
+      "handler": "pgListTriggers",
+      "source": "server/server.go#L1058",
+      "kind": "http",
+      "handler_source": "server/triggers.go#L11"
+    },
+    "GET /api/agents/{key}/variables": {
+      "method": "GET",
+      "path": "/api/agents/{key}/variables",
+      "handler": "pgPromptVars",
+      "source": "server/server.go#L1063",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L685"
+    },
+    "GET /api/agents/{key}/visibility": {
+      "method": "GET",
+      "path": "/api/agents/{key}/visibility",
+      "handler": "pgGetAgentVisibility",
+      "source": "server/server.go#L1065",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L720"
+    },
+    "GET /api/asset-intercept/rules": {
+      "method": "GET",
+      "path": "/api/asset-intercept/rules",
+      "handler": "assetInterceptListRules",
+      "source": "server/server.go#L1127",
+      "kind": "http",
+      "handler_source": "server/asset_intercept.go#L17"
+    },
+    "GET /api/assets": {
+      "method": "GET",
+      "path": "/api/assets",
+      "handler": "listAssets",
+      "source": "server/server.go#L914",
+      "kind": "http",
+      "handler_source": "server/assets.go#L319"
+    },
+    "GET /api/assets/counts": {
+      "method": "GET",
+      "path": "/api/assets/counts",
+      "handler": "assetCounts",
+      "source": "server/server.go#L915",
+      "kind": "http",
+      "handler_source": "server/assets.go#L396"
+    },
+    "GET /api/assets/{id}/intelligence": {
+      "method": "GET",
+      "path": "/api/assets/{id}/intelligence",
+      "handler": "func",
+      "source": "server/server.go#L993",
+      "kind": "http"
+    },
+    "GET /api/assets/{id}/intelligence/{intelID}": {
+      "method": "GET",
+      "path": "/api/assets/{id}/intelligence/{intelID}",
+      "handler": "func",
+      "source": "server/server.go#L997",
+      "kind": "http"
+    },
+    "GET /api/assets/{id}/intelligence/{intelID}/traffic/{trafficID}": {
+      "method": "GET",
+      "path": "/api/assets/{id}/intelligence/{intelID}/traffic/{trafficID}",
+      "handler": "func",
+      "source": "server/server.go#L989",
+      "kind": "http"
+    },
+    "GET /api/audit": {
+      "method": "GET",
+      "path": "/api/audit",
+      "handler": "getAudit",
+      "source": "server/server.go#L968",
+      "kind": "http",
+      "handler_source": "server/server.go#L4466"
+    },
+    "GET /api/auth/status": {
+      "method": "GET",
+      "path": "/api/auth/status",
+      "handler": "authStatus",
+      "source": "server/server.go#L799",
+      "kind": "http",
+      "handler_source": "server/auth.go#L153",
+      "tool": "artex_status"
+    },
+    "GET /api/basic-auth/check": {
+      "method": "GET",
+      "path": "/api/basic-auth/check",
+      "handler": "func",
+      "source": "server/server.go#L803",
+      "kind": "http",
+      "note": "Checks the Basic gate and issues its cookie when Basic credentials are supplied.",
+      "tool": "artex_status"
+    },
+    "GET /api/chat/mentions": {
+      "method": "GET",
+      "path": "/api/chat/mentions",
+      "handler": "searchChatMentions",
+      "source": "server/server.go#L1025",
+      "kind": "http",
+      "handler_source": "server/chat_mentions.go#L58"
+    },
+    "GET /api/commands": {
+      "method": "GET",
+      "path": "/api/commands",
+      "handler": "pgListCommands",
+      "source": "server/server.go#L977",
+      "kind": "http",
+      "handler_source": "server/commands.go#L12"
+    },
+    "GET /api/commands/stats": {
+      "method": "GET",
+      "path": "/api/commands/stats",
+      "handler": "pgToolStats",
+      "source": "server/server.go#L978",
+      "kind": "http",
+      "handler_source": "server/commands.go#L29"
+    },
+    "GET /api/companies": {
+      "method": "GET",
+      "path": "/api/companies",
+      "handler": "listCompanies",
+      "source": "server/server.go#L920",
+      "kind": "http",
+      "handler_source": "server/assets.go#L77"
+    },
+    "GET /api/companies/{id}": {
+      "method": "GET",
+      "path": "/api/companies/{id}",
+      "handler": "getCompany",
+      "source": "server/server.go#L922",
+      "kind": "http",
+      "handler_source": "server/assets.go#L149"
+    },
+    "GET /api/conversations": {
+      "method": "GET",
+      "path": "/api/conversations",
+      "handler": "pgListConversations",
+      "source": "server/server.go#L1035",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L55"
+    },
+    "GET /api/conversations/{id}/messages": {
+      "method": "GET",
+      "path": "/api/conversations/{id}/messages",
+      "handler": "pgConversationMessages",
+      "source": "server/server.go#L1041",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L315"
+    },
+    "GET /api/conversations/{id}/messages/{seq}": {
+      "method": "GET",
+      "path": "/api/conversations/{id}/messages/{seq}",
+      "handler": "pgConversationMsgDetail",
+      "source": "server/server.go#L1044",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L356"
+    },
+    "GET /api/conversations/{id}/side-questions": {
+      "method": "GET",
+      "path": "/api/conversations/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "GET /api/exploration/activity": {
+      "method": "GET",
+      "path": "/api/exploration/activity",
+      "handler": "activity",
+      "source": "server/server.go#L957",
+      "kind": "http",
+      "handler_source": "server/server.go#L2969"
+    },
+    "GET /api/exploration/activity/history": {
+      "method": "GET",
+      "path": "/api/exploration/activity/history",
+      "handler": "activityHistory",
+      "source": "server/server.go#L958",
+      "kind": "http",
+      "handler_source": "server/server.go#L3064"
+    },
+    "GET /api/exploration/activity/stream": {
+      "method": "GET",
+      "path": "/api/exploration/activity/stream",
+      "handler": "streamActivity",
+      "source": "server/server.go#L961",
+      "kind": "sse",
+      "handler_source": "server/server.go#L3306",
+      "note": "SSE. Query task and since; also supports Last-Event-ID."
+    },
+    "GET /api/exploration/activity/{seq}": {
+      "method": "GET",
+      "path": "/api/exploration/activity/{seq}",
+      "handler": "activityDetail",
+      "source": "server/server.go#L962",
+      "kind": "http",
+      "handler_source": "server/server.go#L3405"
+    },
+    "GET /api/exploration/finding-case-review": {
+      "method": "GET",
+      "path": "/api/exploration/finding-case-review",
+      "handler": "caseReviewRuns",
+      "source": "server/server.go#L939",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L507"
+    },
+    "GET /api/exploration/finding-case-suggestions": {
+      "method": "GET",
+      "path": "/api/exploration/finding-case-suggestions",
+      "handler": "caseSuggestions",
+      "source": "server/server.go#L936",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L198"
+    },
+    "GET /api/exploration/finding-cases": {
+      "method": "GET",
+      "path": "/api/exploration/finding-cases",
+      "handler": "listFindingCases",
+      "source": "server/server.go#L930",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L58"
+    },
+    "GET /api/exploration/finding-cases/{id}": {
+      "method": "GET",
+      "path": "/api/exploration/finding-cases/{id}",
+      "handler": "getFindingCase",
+      "source": "server/server.go#L932",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L142"
+    },
+    "GET /api/exploration/finding-cases/{id}/members": {
+      "method": "GET",
+      "path": "/api/exploration/finding-cases/{id}/members",
+      "handler": "getFindingCaseMembers",
+      "source": "server/server.go#L933",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L154"
+    },
+    "GET /api/exploration/findings": {
+      "method": "GET",
+      "path": "/api/exploration/findings",
+      "handler": "findings",
+      "source": "server/server.go#L928",
+      "kind": "http",
+      "handler_source": "server/server.go#L2209"
+    },
+    "GET /api/exploration/findings/asset-tree": {
+      "method": "GET",
+      "path": "/api/exploration/findings/asset-tree",
+      "handler": "findingAssetTree",
+      "source": "server/server.go#L940",
+      "kind": "http",
+      "handler_source": "server/findings_groups.go#L48"
+    },
+    "GET /api/exploration/findings/export": {
+      "method": "GET",
+      "path": "/api/exploration/findings/export",
+      "handler": "findingsExport",
+      "source": "server/server.go#L942",
+      "kind": "file",
+      "handler_source": "server/server.go#L2410"
+    },
+    "GET /api/exploration/findings/groups": {
+      "method": "GET",
+      "path": "/api/exploration/findings/groups",
+      "handler": "findingGroups",
+      "source": "server/server.go#L929",
+      "kind": "http",
+      "handler_source": "server/findings_groups.go#L61"
+    },
+    "GET /api/exploration/findings/retests/active": {
+      "method": "GET",
+      "path": "/api/exploration/findings/retests/active",
+      "handler": "listActiveFindingRetests",
+      "source": "server/server.go#L950",
+      "kind": "http",
+      "handler_source": "server/finding_retests.go#L21"
+    },
+    "GET /api/exploration/findings/stats": {
+      "method": "GET",
+      "path": "/api/exploration/findings/stats",
+      "handler": "findingStats",
+      "source": "server/server.go#L941",
+      "kind": "http",
+      "handler_source": "server/server.go#L2345"
+    },
+    "GET /api/exploration/findings/{id}": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}",
+      "handler": "getFinding",
+      "source": "server/server.go#L945",
+      "kind": "http",
+      "handler_source": "server/server.go#L2361"
+    },
+    "GET /api/exploration/findings/{id}/lineage": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}/lineage",
+      "handler": "findingLineage",
+      "source": "server/server.go#L946",
+      "kind": "http",
+      "handler_source": "server/server.go#L2548"
+    },
+    "GET /api/exploration/findings/{id}/retests": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}/retests",
+      "handler": "listFindingRetests",
+      "source": "server/server.go#L949",
+      "kind": "http",
+      "handler_source": "server/finding_retests.go#L34"
+    },
+    "GET /api/exploration/findings/{id}/traffic": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}/traffic",
+      "handler": "getFindingTraffic",
+      "source": "server/finding_traffic.go#L84",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L148"
+    },
+    "GET /api/exploration/findings/{id}/traffic/{binding_id}": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+      "handler": "getFindingTrafficDetail",
+      "source": "server/finding_traffic.go#L89",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L284"
+    },
+    "GET /api/exploration/findings/{id}/traffic/{binding_id}/body": {
+      "method": "GET",
+      "path": "/api/exploration/findings/{id}/traffic/{binding_id}/body",
+      "handler": "getFindingTrafficBody",
+      "source": "server/finding_traffic.go#L90",
+      "kind": "file",
+      "handler_source": "server/finding_traffic.go#L315"
+    },
+    "GET /api/exploration/frontier": {
+      "method": "GET",
+      "path": "/api/exploration/frontier",
+      "handler": "frontier",
+      "source": "server/server.go#L927",
+      "kind": "http",
+      "handler_source": "server/server.go#L2199"
+    },
+    "GET /api/exploration/graph": {
+      "method": "GET",
+      "path": "/api/exploration/graph",
+      "handler": "explorationGraph",
+      "source": "server/server.go#L955",
+      "kind": "http",
+      "handler_source": "server/server.go#L2820"
+    },
+    "GET /api/exploration/intents": {
+      "method": "GET",
+      "path": "/api/exploration/intents",
+      "handler": "intents",
+      "source": "server/server.go#L954",
+      "kind": "http",
+      "handler_source": "server/server.go#L2695"
+    },
+    "GET /api/exploration/main-sessions": {
+      "method": "GET",
+      "path": "/api/exploration/main-sessions",
+      "handler": "mainSessions",
+      "source": "server/server.go#L959",
+      "kind": "http",
+      "handler_source": "server/server.go#L4222"
+    },
+    "GET /api/exploration/nodes": {
+      "method": "GET",
+      "path": "/api/exploration/nodes",
+      "handler": "explorationNodes",
+      "source": "server/server.go#L956",
+      "kind": "http",
+      "handler_source": "server/server.go#L2866"
+    },
+    "GET /api/exploration/tokens": {
+      "method": "GET",
+      "path": "/api/exploration/tokens",
+      "handler": "tokenStats",
+      "source": "server/server.go#L963",
+      "kind": "http",
+      "handler_source": "server/server.go#L3138"
+    },
+    "GET /api/health": {
+      "method": "GET",
+      "path": "/api/health",
+      "handler": "health",
+      "source": "server/server.go#L810",
+      "kind": "http",
+      "handler_source": "server/server.go#L1159"
+    },
+    "GET /api/intercept/history": {
+      "method": "GET",
+      "path": "/api/intercept/history",
+      "handler": "interceptHistory",
+      "source": "server/server.go#L1136",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L334"
+    },
+    "GET /api/intercept/history/{id}": {
+      "method": "GET",
+      "path": "/api/intercept/history/{id}",
+      "handler": "interceptDetail",
+      "source": "server/server.go#L1137",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L615"
+    },
+    "GET /api/intercept/history/{id}/execution": {
+      "method": "GET",
+      "path": "/api/intercept/history/{id}/execution",
+      "handler": "interceptExecution",
+      "source": "server/server.go#L1138",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L638"
+    },
+    "GET /api/intercept/history/{id}/side-questions": {
+      "method": "GET",
+      "path": "/api/intercept/history/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "GET /api/intercept/judge": {
+      "method": "GET",
+      "path": "/api/intercept/judge",
+      "handler": "interceptGetJudgeConfig",
+      "source": "server/server.go#L1142",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L490"
+    },
+    "GET /api/intercept/judge/usage": {
+      "method": "GET",
+      "path": "/api/intercept/judge/usage",
+      "handler": "interceptJudgeUsage",
+      "source": "server/server.go#L1144",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L554"
+    },
+    "GET /api/intercept/pending": {
+      "method": "GET",
+      "path": "/api/intercept/pending",
+      "handler": "interceptListPending",
+      "source": "server/server.go#L1133",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L256"
+    },
+    "GET /api/intercept/pending/{id}": {
+      "method": "GET",
+      "path": "/api/intercept/pending/{id}",
+      "handler": "interceptGetOne",
+      "source": "server/server.go#L1134",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L272"
+    },
+    "GET /api/intercept/rules": {
+      "method": "GET",
+      "path": "/api/intercept/rules",
+      "handler": "interceptListRules",
+      "source": "server/server.go#L1120",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L144"
+    },
+    "GET /api/intercept/task/{taskID}": {
+      "method": "GET",
+      "path": "/api/intercept/task/{taskID}",
+      "handler": "interceptListTaskItems",
+      "source": "server/server.go#L1139",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L294"
+    },
+    "GET /api/intercept/tool-config": {
+      "method": "GET",
+      "path": "/api/intercept/tool-config",
+      "handler": "interceptGetToolConfig",
+      "source": "server/server.go#L1140",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L457"
+    },
+    "GET /api/llm": {
+      "method": "GET",
+      "path": "/api/llm",
+      "handler": "getLLM",
+      "source": "server/server.go#L909",
+      "kind": "http",
+      "handler_source": "server/server.go#L1509"
+    },
+    "GET /api/llm/pool": {
+      "method": "GET",
+      "path": "/api/llm/pool",
+      "handler": "pgLLMPoolStatus",
+      "source": "server/server.go#L1115",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1977"
+    },
+    "GET /api/llm/profiles": {
+      "method": "GET",
+      "path": "/api/llm/profiles",
+      "handler": "pgListProfiles",
+      "source": "server/server.go#L1109",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1798"
+    },
+    "GET /api/llm/records": {
+      "method": "GET",
+      "path": "/api/llm/records",
+      "handler": "pgListLLMRecords",
+      "source": "server/server.go#L979",
+      "kind": "http",
+      "handler_source": "server/commands.go#L58"
+    },
+    "GET /api/llm/records/by-model": {
+      "method": "GET",
+      "path": "/api/llm/records/by-model",
+      "handler": "pgTokenByModel",
+      "source": "server/server.go#L982",
+      "kind": "http",
+      "handler_source": "server/commands.go#L78"
+    },
+    "GET /api/llm/records/tasks": {
+      "method": "GET",
+      "path": "/api/llm/records/tasks",
+      "handler": "pgLLMTasks",
+      "source": "server/server.go#L981",
+      "kind": "http",
+      "handler_source": "server/commands.go#L123"
+    },
+    "GET /api/llm/records/{id}": {
+      "method": "GET",
+      "path": "/api/llm/records/{id}",
+      "handler": "pgGetLLMRecord",
+      "source": "server/server.go#L983",
+      "kind": "http",
+      "handler_source": "server/commands.go#L149"
+    },
+    "GET /api/llm/retry-policy": {
+      "method": "GET",
+      "path": "/api/llm/retry-policy",
+      "handler": "pgGetLLMRetryPolicy",
+      "source": "server/server.go#L1113",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1864"
+    },
+    "GET /api/logs": {
+      "method": "GET",
+      "path": "/api/logs",
+      "handler": "getLogs",
+      "source": "server/server.go#L814",
+      "kind": "http",
+      "handler_source": "server/server.go#L3206"
+    },
+    "GET /api/logs/history": {
+      "method": "GET",
+      "path": "/api/logs/history",
+      "handler": "getLogsHistory",
+      "source": "server/server.go#L815",
+      "kind": "http",
+      "handler_source": "server/server.go#L3216"
+    },
+    "GET /api/logs/stream": {
+      "method": "GET",
+      "path": "/api/logs/stream",
+      "handler": "streamLogs",
+      "source": "server/server.go#L816",
+      "kind": "sse",
+      "handler_source": "server/server.go#L3255",
+      "note": "SSE. Resume via query since from the last event's data.seq."
+    },
+    "GET /api/mcp": {
+      "method": "GET",
+      "path": "/api/mcp",
+      "handler": "pgListMCP",
+      "source": "server/server.go#L1077",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L863"
+    },
+    "GET /api/mcp/{id}/tools": {
+      "method": "GET",
+      "path": "/api/mcp/{id}/tools",
+      "handler": "pgMCPTools",
+      "source": "server/server.go#L1080",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L957"
+    },
+    "GET /api/notify/channels": {
+      "method": "GET",
+      "path": "/api/notify/channels",
+      "handler": "notifyListChannels",
+      "source": "server/server.go#L1006",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L147"
+    },
+    "GET /api/notify/deliveries": {
+      "method": "GET",
+      "path": "/api/notify/deliveries",
+      "handler": "notifyListDeliveries",
+      "source": "server/server.go#L1011",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L465"
+    },
+    "GET /api/notify/meta": {
+      "method": "GET",
+      "path": "/api/notify/meta",
+      "handler": "notifyMeta",
+      "source": "server/server.go#L1005",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L114"
+    },
+    "GET /api/report": {
+      "method": "GET",
+      "path": "/api/report",
+      "handler": "getReport",
+      "source": "server/server.go#L1024",
+      "kind": "file",
+      "handler_source": "server/server.go#L4443"
+    },
+    "GET /api/schedules": {
+      "method": "GET",
+      "path": "/api/schedules",
+      "handler": "listSchedules",
+      "source": "server/server.go#L829",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L64"
+    },
+    "GET /api/schedules/{id}": {
+      "method": "GET",
+      "path": "/api/schedules/{id}",
+      "handler": "getSchedule",
+      "source": "server/server.go#L831",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L77"
+    },
+    "GET /api/settings": {
+      "method": "GET",
+      "path": "/api/settings",
+      "handler": "getSettings",
+      "source": "server/server.go#L1001",
+      "kind": "http",
+      "handler_source": "server/server.go#L3658"
+    },
+    "GET /api/settings/basic-auth": {
+      "method": "GET",
+      "path": "/api/settings/basic-auth",
+      "handler": "getBasicAuthSettings",
+      "source": "server/server.go#L807",
+      "kind": "http",
+      "handler_source": "server/basic_auth.go#L217"
+    },
+    "GET /api/settings/proxy-pool": {
+      "method": "GET",
+      "path": "/api/settings/proxy-pool",
+      "handler": "getProxyPool",
+      "source": "server/server.go#L1016",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L747"
+    },
+    "GET /api/side-questions/{requestID}/events": {
+      "method": "GET",
+      "path": "/api/side-questions/{requestID}/events",
+      "handler": "sideEvents",
+      "source": "server/side_questions.go#L681",
+      "kind": "sse",
+      "handler_source": "server/side_questions.go#L944",
+      "note": "SSE snapshots. A reconnect may replay the current snapshot."
+    },
+    "GET /api/skills": {
+      "method": "GET",
+      "path": "/api/skills",
+      "handler": "fsListSkills",
+      "source": "server/server.go#L1089",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L991"
+    },
+    "GET /api/skills/missing": {
+      "method": "GET",
+      "path": "/api/skills/missing",
+      "handler": "fsMissingSkills",
+      "source": "server/server.go#L1093",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1066"
+    },
+    "GET /api/skills/{name}/files": {
+      "method": "GET",
+      "path": "/api/skills/{name}/files",
+      "handler": "fsListFiles",
+      "source": "server/server.go#L1097",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1588"
+    },
+    "GET /api/skills/{name}/files/{file...}": {
+      "method": "GET",
+      "path": "/api/skills/{name}/files/{file...}",
+      "handler": "fsReadFile",
+      "source": "server/server.go#L1099",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1610"
+    },
+    "GET /api/skills/{name}/usage": {
+      "method": "GET",
+      "path": "/api/skills/{name}/usage",
+      "handler": "fsSkillUsage",
+      "source": "server/server.go#L1094",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1045"
+    },
+    "GET /api/stats": {
+      "method": "GET",
+      "path": "/api/stats",
+      "handler": "stats",
+      "source": "server/server.go#L812",
+      "kind": "http",
+      "handler_source": "server/server.go#L1170"
+    },
+    "GET /api/sync/scopesentry/projects": {
+      "method": "GET",
+      "path": "/api/sync/scopesentry/projects",
+      "handler": "syncSSProjects",
+      "source": "server/server.go#L1085",
+      "kind": "http",
+      "handler_source": "server/sync_scopesentry.go#L166"
+    },
+    "GET /api/sync/scopesentry/status": {
+      "method": "GET",
+      "path": "/api/sync/scopesentry/status",
+      "handler": "syncSSStatus",
+      "source": "server/server.go#L1083",
+      "kind": "http",
+      "handler_source": "server/sync_scopesentry.go#L74"
+    },
+    "GET /api/sync/scopesentry/tasks": {
+      "method": "GET",
+      "path": "/api/sync/scopesentry/tasks",
+      "handler": "syncSSTasks",
+      "source": "server/server.go#L1086",
+      "kind": "http",
+      "handler_source": "server/sync_scopesentry.go#L209"
+    },
+    "GET /api/system/metrics": {
+      "method": "GET",
+      "path": "/api/system/metrics",
+      "handler": "systemMetrics",
+      "source": "server/server.go#L813",
+      "kind": "http",
+      "handler_source": "server/system_metrics.go#L26"
+    },
+    "GET /api/task-archives": {
+      "method": "GET",
+      "path": "/api/task-archives",
+      "handler": "listTaskArchives",
+      "source": "server/server.go#L858",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L438"
+    },
+    "GET /api/task-archives/{id}": {
+      "method": "GET",
+      "path": "/api/task-archives/{id}",
+      "handler": "getTaskArchive",
+      "source": "server/server.go#L859",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L449"
+    },
+    "GET /api/task-categories": {
+      "method": "GET",
+      "path": "/api/task-categories",
+      "handler": "pgListTaskCategories",
+      "source": "server/server.go#L839",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L57"
+    },
+    "GET /api/task-templates": {
+      "method": "GET",
+      "path": "/api/task-templates",
+      "handler": "pgListTaskTemplates",
+      "source": "server/server.go#L844",
+      "kind": "http",
+      "handler_source": "server/task_templates.go#L111"
+    },
+    "GET /api/tasks": {
+      "method": "GET",
+      "path": "/api/tasks",
+      "handler": "listTasks",
+      "source": "server/server.go#L827",
+      "kind": "http",
+      "handler_source": "server/server.go#L1255"
+    },
+    "GET /api/tasks/{id}": {
+      "method": "GET",
+      "path": "/api/tasks/{id}",
+      "handler": "getTask",
+      "source": "server/server.go#L848",
+      "kind": "http",
+      "handler_source": "server/server.go#L2024"
+    },
+    "GET /api/tasks/{id}/asset-mapping/status": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/asset-mapping/status",
+      "handler": "taskAssetMappingStatus",
+      "source": "server/server.go#L874",
+      "kind": "http",
+      "handler_source": "server/task_asset_mapping.go#L103"
+    },
+    "GET /api/tasks/{id}/asset-refs": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/asset-refs",
+      "handler": "taskAssetRefs",
+      "source": "server/server.go#L875",
+      "kind": "http",
+      "handler_source": "server/server.go#L2087"
+    },
+    "GET /api/tasks/{id}/chat/side-questions": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/chat/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "GET /api/tasks/{id}/chat/status": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/chat/status",
+      "handler": "taskChatStatus",
+      "source": "server/server.go#L1028",
+      "kind": "http",
+      "handler_source": "server/server.go#L4390"
+    },
+    "GET /api/tasks/{id}/constraints": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/constraints",
+      "handler": "listConstraints",
+      "source": "server/server.go#L896",
+      "kind": "http",
+      "handler_source": "server/constraints_api.go#L34"
+    },
+    "GET /api/tasks/{id}/coverage": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/coverage",
+      "handler": "taskCoverage",
+      "source": "server/server.go#L866",
+      "kind": "http",
+      "handler_source": "server/server.go#L2037"
+    },
+    "GET /api/tasks/{id}/coverage-graph": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/coverage-graph",
+      "handler": "taskCoverageGraph",
+      "source": "server/server.go#L867",
+      "kind": "http",
+      "handler_source": "server/server.go#L2065"
+    },
+    "GET /api/tasks/{id}/goals": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/goals",
+      "handler": "listGoals",
+      "source": "server/server.go#L892",
+      "kind": "http",
+      "handler_source": "server/goals_api.go#L18"
+    },
+    "GET /api/tasks/{id}/intelligence": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intelligence",
+      "handler": "listIntelligence",
+      "source": "server/server.go#L984",
+      "kind": "http",
+      "handler_source": "server/intelligence.go#L60"
+    },
+    "GET /api/tasks/{id}/intelligence/{intelID}": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intelligence/{intelID}",
+      "handler": "getIntelligence",
+      "source": "server/server.go#L985",
+      "kind": "http",
+      "handler_source": "server/intelligence.go#L73"
+    },
+    "GET /api/tasks/{id}/intelligence/{intelID}/traffic/{trafficID}": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intelligence/{intelID}/traffic/{trafficID}",
+      "handler": "credentialTrafficDetail",
+      "source": "server/server.go#L988",
+      "kind": "http",
+      "handler_source": "server/credentials.go#L434"
+    },
+    "GET /api/tasks/{id}/intent-assets": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intent-assets",
+      "handler": "taskIntentAssets",
+      "source": "server/server.go#L878",
+      "kind": "http",
+      "handler_source": "server/task_assets.go#L95"
+    },
+    "GET /api/tasks/{id}/intents/{iid}/side-questions": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "GET /api/tasks/{id}/intercept-rules": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/intercept-rules",
+      "handler": "taskInterceptListRules",
+      "source": "server/server.go#L852",
+      "kind": "http",
+      "handler_source": "server/task_intercept.go#L59"
+    },
+    "GET /api/tasks/{id}/llm/resolution": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/llm/resolution",
+      "handler": "taskLLMResolutionHandler",
+      "source": "server/server.go#L902",
+      "kind": "http",
+      "handler_source": "server/task_resolution.go#L103"
+    },
+    "GET /api/tasks/{id}/scope": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/scope",
+      "handler": "taskScopeList",
+      "source": "server/server.go#L889",
+      "kind": "http",
+      "handler_source": "server/server.go#L2121"
+    },
+    "GET /api/tasks/{id}/topology-mapping/status": {
+      "method": "GET",
+      "path": "/api/tasks/{id}/topology-mapping/status",
+      "handler": "taskAssetMappingStatus",
+      "source": "server/server.go#L871",
+      "kind": "http",
+      "handler_source": "server/task_asset_mapping.go#L103"
+    },
+    "GET /api/tokens/conversations": {
+      "method": "GET",
+      "path": "/api/tokens/conversations",
+      "handler": "conversationTokens",
+      "source": "server/server.go#L965",
+      "kind": "http",
+      "handler_source": "server/server.go#L3188"
+    },
+    "GET /api/tokens/daily": {
+      "method": "GET",
+      "path": "/api/tokens/daily",
+      "handler": "tokenDailyStats",
+      "source": "server/server.go#L964",
+      "kind": "http",
+      "handler_source": "server/server.go#L3168"
+    },
+    "GET /api/tokens/usage": {
+      "method": "GET",
+      "path": "/api/tokens/usage",
+      "handler": "pgUsageStats",
+      "source": "server/server.go#L966",
+      "kind": "http",
+      "handler_source": "server/commands.go#L101"
+    },
+    "GET /api/tools": {
+      "method": "GET",
+      "path": "/api/tools",
+      "handler": "pgListTools",
+      "source": "server/server.go#L1068",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L759"
+    },
+    "GET /api/traffic": {
+      "method": "GET",
+      "path": "/api/traffic",
+      "handler": "getTraffic",
+      "source": "server/server.go#L970",
+      "kind": "http",
+      "handler_source": "server/server.go#L3428"
+    },
+    "GET /api/traffic/blob": {
+      "method": "GET",
+      "path": "/api/traffic/blob",
+      "handler": "getTrafficBlob",
+      "source": "server/server.go#L976",
+      "kind": "file",
+      "handler_source": "server/server.go#L3630"
+    },
+    "GET /api/traffic/exchange": {
+      "method": "GET",
+      "path": "/api/traffic/exchange",
+      "handler": "getTrafficExchange",
+      "source": "server/server.go#L975",
+      "kind": "http",
+      "handler_source": "server/server.go#L3607"
+    },
+    "GET /api/traffic/hosts": {
+      "method": "GET",
+      "path": "/api/traffic/hosts",
+      "handler": "getTrafficHosts",
+      "source": "server/server.go#L971",
+      "kind": "http",
+      "handler_source": "server/server.go#L3492"
+    },
+    "GET /api/update/check": {
+      "method": "GET",
+      "path": "/api/update/check",
+      "handler": "updateCheck",
+      "source": "server/server.go#L822",
+      "kind": "http",
+      "handler_source": "server/update.go#L211"
+    },
+    "GET /api/update/settings": {
+      "method": "GET",
+      "path": "/api/update/settings",
+      "handler": "getUpdateSettings",
+      "source": "server/server.go#L820",
+      "kind": "http",
+      "handler_source": "server/update_settings.go#L43"
+    },
+    "GET /api/update/stream": {
+      "method": "GET",
+      "path": "/api/update/stream",
+      "handler": "updateStream",
+      "source": "server/server.go#L825",
+      "kind": "sse",
+      "handler_source": "server/update.go#L345",
+      "note": "SSE for Web binary update progress."
+    },
+    "GET /api/version": {
+      "method": "GET",
+      "path": "/api/version",
+      "handler": "version",
+      "source": "server/server.go#L811",
+      "kind": "http",
+      "handler_source": "server/server.go#L1165"
+    },
+    "GET /api/visibility/skill/{name}": {
+      "method": "GET",
+      "path": "/api/visibility/skill/{name}",
+      "handler": "pgSkillVisibility",
+      "source": "server/server.go#L1106",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1724"
+    },
+    "GET /api/visibility/{kind}/{id}": {
+      "method": "GET",
+      "path": "/api/visibility/{kind}/{id}",
+      "handler": "pgResourceVisibility",
+      "source": "server/server.go#L1103",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1760"
+    },
+    "GET /api/workspace/download": {
+      "method": "GET",
+      "path": "/api/workspace/download",
+      "handler": "wsDownload",
+      "source": "server/server.go#L886",
+      "kind": "file",
+      "handler_source": "server/workspace.go#L213"
+    },
+    "GET /api/workspace/list": {
+      "method": "GET",
+      "path": "/api/workspace/list",
+      "handler": "wsList",
+      "source": "server/server.go#L881",
+      "kind": "http",
+      "handler_source": "server/workspace.go#L61"
+    },
+    "GET /api/workspace/preview": {
+      "method": "GET",
+      "path": "/api/workspace/preview",
+      "handler": "wsPreview",
+      "source": "server/server.go#L887",
+      "kind": "file",
+      "handler_source": "server/workspace.go#L233"
+    },
+    "GET /api/workspace/read": {
+      "method": "GET",
+      "path": "/api/workspace/read",
+      "handler": "wsRead",
+      "source": "server/server.go#L882",
+      "kind": "http",
+      "handler_source": "server/workspace.go#L107"
+    },
+    "PATCH /api/agents/{key}": {
+      "method": "PATCH",
+      "path": "/api/agents/{key}",
+      "handler": "pgUpdateAgent",
+      "source": "server/server.go#L1049",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L291"
+    },
+    "PATCH /api/conversations/{id}": {
+      "method": "PATCH",
+      "path": "/api/conversations/{id}",
+      "handler": "pgRenameConversation",
+      "source": "server/server.go#L1038",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L182"
+    },
+    "PATCH /api/conversations/{id}/profile": {
+      "method": "PATCH",
+      "path": "/api/conversations/{id}/profile",
+      "handler": "pgUpdateConversation",
+      "source": "server/server.go#L1039",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L131"
+    },
+    "PATCH /api/exploration/findings/{id}": {
+      "method": "PATCH",
+      "path": "/api/exploration/findings/{id}",
+      "handler": "patchFinding",
+      "source": "server/server.go#L952",
+      "kind": "http",
+      "handler_source": "server/server.go#L2585"
+    },
+    "PATCH /api/exploration/findings/{id}/traffic/{binding_id}": {
+      "method": "PATCH",
+      "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+      "handler": "editFindingTraffic",
+      "source": "server/finding_traffic.go#L86",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L185"
+    },
+    "PATCH /api/notify/channels/{id}": {
+      "method": "PATCH",
+      "path": "/api/notify/channels/{id}",
+      "handler": "notifyUpdateChannel",
+      "source": "server/server.go#L1008",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L254"
+    },
+    "PATCH /api/schedules/{id}": {
+      "method": "PATCH",
+      "path": "/api/schedules/{id}",
+      "handler": "updateSchedule",
+      "source": "server/server.go#L832",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L127"
+    },
+    "PATCH /api/schedules/{id}/metadata": {
+      "method": "PATCH",
+      "path": "/api/schedules/{id}/metadata",
+      "handler": "updateScheduleMetadata",
+      "source": "server/server.go#L834",
+      "kind": "http",
+      "handler_source": "server/remarks.go#L23"
+    },
+    "PATCH /api/schedules/{id}/remark": {
+      "method": "PATCH",
+      "path": "/api/schedules/{id}/remark",
+      "handler": "updateScheduleMetadata",
+      "source": "server/server.go#L833",
+      "kind": "http",
+      "handler_source": "server/remarks.go#L23"
+    },
+    "PATCH /api/task-categories/{id}": {
+      "method": "PATCH",
+      "path": "/api/task-categories/{id}",
+      "handler": "pgRenameTaskCategory",
+      "source": "server/server.go#L841",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L87"
+    },
+    "PATCH /api/task-templates/{id}": {
+      "method": "PATCH",
+      "path": "/api/task-templates/{id}",
+      "handler": "pgUpdateTaskTemplate",
+      "source": "server/server.go#L846",
+      "kind": "http",
+      "handler_source": "server/task_templates.go#L162"
+    },
+    "PATCH /api/tasks/{id}": {
+      "method": "PATCH",
+      "path": "/api/tasks/{id}",
+      "handler": "updateTaskMetadata",
+      "source": "server/server.go#L849",
+      "kind": "http",
+      "handler_source": "server/task_metadata.go#L20"
+    },
+    "PATCH /api/tasks/{id}/category": {
+      "method": "PATCH",
+      "path": "/api/tasks/{id}/category",
+      "handler": "updateTaskCategory",
+      "source": "server/server.go#L850",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L143"
+    },
+    "PATCH /api/tasks/{id}/constraints/{cid}": {
+      "method": "PATCH",
+      "path": "/api/tasks/{id}/constraints/{cid}",
+      "handler": "editConstraint",
+      "source": "server/server.go#L898",
+      "kind": "http",
+      "handler_source": "server/constraints_api.go#L88"
+    },
+    "PATCH /api/tasks/{id}/goals/{gid}": {
+      "method": "PATCH",
+      "path": "/api/tasks/{id}/goals/{gid}",
+      "handler": "editGoal",
+      "source": "server/server.go#L894",
+      "kind": "http",
+      "handler_source": "server/goals_api.go#L83"
+    },
+    "PATCH /api/tasks/{id}/intelligence/{intelID}": {
+      "method": "PATCH",
+      "path": "/api/tasks/{id}/intelligence/{intelID}",
+      "handler": "updateIntelligence",
+      "source": "server/server.go#L986",
+      "kind": "http",
+      "handler_source": "server/intelligence.go#L110"
+    },
+    "PATCH /api/triggers/{id}": {
+      "method": "PATCH",
+      "path": "/api/triggers/{id}",
+      "handler": "pgUpdateTrigger",
+      "source": "server/server.go#L1060",
+      "kind": "http",
+      "handler_source": "server/triggers.go#L88"
+    },
+    "POST /api/active": {
+      "method": "POST",
+      "path": "/api/active",
+      "handler": "setActive",
+      "source": "server/server.go#L907",
+      "kind": "http",
+      "handler_source": "server/server.go#L1314"
+    },
+    "POST /api/agents": {
+      "method": "POST",
+      "path": "/api/agents",
+      "handler": "pgCreateAgent",
+      "source": "server/server.go#L1047",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L255"
+    },
+    "POST /api/agents/{key}/prompt/preview": {
+      "method": "POST",
+      "path": "/api/agents/{key}/prompt/preview",
+      "handler": "pgPreviewPrompt",
+      "source": "server/server.go#L1064",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L698"
+    },
+    "POST /api/agents/{key}/prompt/reset": {
+      "method": "POST",
+      "path": "/api/agents/{key}/prompt/reset",
+      "handler": "pgResetPrompt",
+      "source": "server/server.go#L1053",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L553"
+    },
+    "POST /api/agents/{key}/triggers": {
+      "method": "POST",
+      "path": "/api/agents/{key}/triggers",
+      "handler": "pgCreateTrigger",
+      "source": "server/server.go#L1059",
+      "kind": "http",
+      "handler_source": "server/triggers.go#L53"
+    },
+    "POST /api/agents/{key}/wrapup/reset": {
+      "method": "POST",
+      "path": "/api/agents/{key}/wrapup/reset",
+      "handler": "pgResetWrapup",
+      "source": "server/server.go#L1055",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L606"
+    },
+    "POST /api/agents/{key}/wrapup/task-timeout/reset": {
+      "method": "POST",
+      "path": "/api/agents/{key}/wrapup/task-timeout/reset",
+      "handler": "pgResetTaskTimeoutWrapup",
+      "source": "server/server.go#L1057",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L656"
+    },
+    "POST /api/asset-intercept/rules": {
+      "method": "POST",
+      "path": "/api/asset-intercept/rules",
+      "handler": "assetInterceptCreateRule",
+      "source": "server/server.go#L1128",
+      "kind": "http",
+      "handler_source": "server/asset_intercept.go#L33"
+    },
+    "POST /api/asset-intercept/rules/{id}/toggle": {
+      "method": "POST",
+      "path": "/api/asset-intercept/rules/{id}/toggle",
+      "handler": "assetInterceptToggleRule",
+      "source": "server/server.go#L1131",
+      "kind": "http",
+      "handler_source": "server/asset_intercept.go#L99"
+    },
+    "POST /api/assets": {
+      "method": "POST",
+      "path": "/api/assets",
+      "handler": "insertAssets",
+      "source": "server/server.go#L916",
+      "kind": "http",
+      "handler_source": "server/assets.go#L449"
+    },
+    "POST /api/auth/change-password": {
+      "method": "POST",
+      "path": "/api/auth/change-password",
+      "handler": "authChangePassword",
+      "source": "server/server.go#L802",
+      "kind": "http",
+      "handler_source": "server/auth.go#L220",
+      "tool": "artex_change_password"
+    },
+    "POST /api/auth/init": {
+      "method": "POST",
+      "path": "/api/auth/init",
+      "handler": "authInit",
+      "source": "server/server.go#L800",
+      "kind": "http",
+      "handler_source": "server/auth.go#L167",
+      "tool": "artex_initialize"
+    },
+    "POST /api/auth/login": {
+      "method": "POST",
+      "path": "/api/auth/login",
+      "handler": "authLogin",
+      "source": "server/server.go#L801",
+      "kind": "http",
+      "handler_source": "server/auth.go#L271",
+      "tool": "artex_login"
+    },
+    "POST /api/chat": {
+      "method": "POST",
+      "path": "/api/chat",
+      "handler": "chat",
+      "source": "server/server.go#L1026",
+      "kind": "http",
+      "handler_source": "server/server.go#L4261",
+      "note": "JSON {message, attachments?, seg?}; optional query task. Live task activity uses the separate activity stream."
+    },
+    "POST /api/chat/upload": {
+      "method": "POST",
+      "path": "/api/chat/upload",
+      "handler": "chatUpload",
+      "source": "server/server.go#L1027",
+      "kind": "multipart",
+      "handler_source": "server/chatupload.go#L46",
+      "note": "Query scope=task|session|staging and id; multipart field file may repeat."
+    },
+    "POST /api/companies": {
+      "method": "POST",
+      "path": "/api/companies",
+      "handler": "createCompany",
+      "source": "server/server.go#L921",
+      "kind": "http",
+      "handler_source": "server/assets.go#L95"
+    },
+    "POST /api/companies/reattribute": {
+      "method": "POST",
+      "path": "/api/companies/reattribute",
+      "handler": "reattribute",
+      "source": "server/server.go#L925",
+      "kind": "http",
+      "handler_source": "server/assets.go#L297"
+    },
+    "POST /api/companies/{id}/scope": {
+      "method": "POST",
+      "path": "/api/companies/{id}/scope",
+      "handler": "addCompanyScope",
+      "source": "server/server.go#L924",
+      "kind": "http",
+      "handler_source": "server/assets.go#L181"
+    },
+    "POST /api/conversations": {
+      "method": "POST",
+      "path": "/api/conversations",
+      "handler": "pgCreateConversation",
+      "source": "server/server.go#L1036",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L74"
+    },
+    "POST /api/conversations/delete/batch": {
+      "method": "POST",
+      "path": "/api/conversations/delete/batch",
+      "handler": "pgDeleteConversationsBatch",
+      "source": "server/server.go#L1037",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L257"
+    },
+    "POST /api/conversations/{id}/messages": {
+      "method": "POST",
+      "path": "/api/conversations/{id}/messages",
+      "handler": "pgSendConversationMessage",
+      "source": "server/server.go#L1042",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L397"
+    },
+    "POST /api/conversations/{id}/side-questions": {
+      "method": "POST",
+      "path": "/api/conversations/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "POST /api/conversations/{id}/stop": {
+      "method": "POST",
+      "path": "/api/conversations/{id}/stop",
+      "handler": "pgStopConversation",
+      "source": "server/server.go#L1043",
+      "kind": "http",
+      "handler_source": "server/conversations.go#L377"
+    },
+    "POST /api/exploration/finding-case-review": {
+      "method": "POST",
+      "path": "/api/exploration/finding-case-review",
+      "handler": "reviewFindingCases",
+      "source": "server/server.go#L938",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L430"
+    },
+    "POST /api/exploration/finding-case-suggestions/{id}": {
+      "method": "POST",
+      "path": "/api/exploration/finding-case-suggestions/{id}",
+      "handler": "resolveCaseSuggestion",
+      "source": "server/server.go#L937",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L206"
+    },
+    "POST /api/exploration/finding-cases": {
+      "method": "POST",
+      "path": "/api/exploration/finding-cases",
+      "handler": "mergeFindingCase",
+      "source": "server/server.go#L931",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L230"
+    },
+    "POST /api/exploration/findings/{id}/deepen": {
+      "method": "POST",
+      "path": "/api/exploration/findings/{id}/deepen",
+      "handler": "deepenFinding",
+      "source": "server/server.go#L947",
+      "kind": "http",
+      "handler_source": "server/findings_groups.go#L95"
+    },
+    "POST /api/exploration/findings/{id}/generate-report": {
+      "method": "POST",
+      "path": "/api/exploration/findings/{id}/generate-report",
+      "handler": "generateFindingReport",
+      "source": "server/server.go#L948",
+      "kind": "http",
+      "handler_source": "server/finding_report.go#L15"
+    },
+    "POST /api/exploration/findings/{id}/retests": {
+      "method": "POST",
+      "path": "/api/exploration/findings/{id}/retests",
+      "handler": "startFindingRetest",
+      "source": "server/server.go#L951",
+      "kind": "http",
+      "handler_source": "server/finding_retests.go#L61"
+    },
+    "POST /api/exploration/findings/{id}/traffic": {
+      "method": "POST",
+      "path": "/api/exploration/findings/{id}/traffic",
+      "handler": "bindFindingTraffic",
+      "source": "server/finding_traffic.go#L85",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L161"
+    },
+    "POST /api/exploration/main-session/new": {
+      "method": "POST",
+      "path": "/api/exploration/main-session/new",
+      "handler": "newMainSession",
+      "source": "server/server.go#L960",
+      "kind": "http",
+      "handler_source": "server/server.go#L4243"
+    },
+    "POST /api/gc": {
+      "method": "POST",
+      "path": "/api/gc",
+      "handler": "gc",
+      "source": "server/server.go#L969",
+      "kind": "http",
+      "handler_source": "server/server.go#L4476"
+    },
+    "POST /api/intercept/history/{id}/side-questions": {
+      "method": "POST",
+      "path": "/api/intercept/history/{id}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "POST /api/intercept/pending/{id}/decide": {
+      "method": "POST",
+      "path": "/api/intercept/pending/{id}/decide",
+      "handler": "interceptDecide",
+      "source": "server/server.go#L1135",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L425",
+      "note": "JSON {\"decision\":\"allowed\"} or {\"decision\":\"denied\"}."
+    },
+    "POST /api/intercept/rules": {
+      "method": "POST",
+      "path": "/api/intercept/rules",
+      "handler": "interceptCreateRule",
+      "source": "server/server.go#L1121",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L160"
+    },
+    "POST /api/intercept/rules/{id}/toggle": {
+      "method": "POST",
+      "path": "/api/intercept/rules/{id}/toggle",
+      "handler": "interceptToggleRule",
+      "source": "server/server.go#L1124",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L229"
+    },
+    "POST /api/llm": {
+      "method": "POST",
+      "path": "/api/llm",
+      "handler": "setLLM",
+      "source": "server/server.go#L910",
+      "kind": "http",
+      "handler_source": "server/server.go#L1528"
+    },
+    "POST /api/llm/models": {
+      "method": "POST",
+      "path": "/api/llm/models",
+      "handler": "pgListModels",
+      "source": "server/server.go#L1117",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L2012"
+    },
+    "POST /api/llm/pool/reset": {
+      "method": "POST",
+      "path": "/api/llm/pool/reset",
+      "handler": "pgLLMPoolReset",
+      "source": "server/server.go#L1116",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1986"
+    },
+    "POST /api/llm/profiles": {
+      "method": "POST",
+      "path": "/api/llm/profiles",
+      "handler": "pgSaveProfile",
+      "source": "server/server.go#L1110",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1811"
+    },
+    "POST /api/llm/profiles/active": {
+      "method": "POST",
+      "path": "/api/llm/profiles/active",
+      "handler": "pgActivateProfile",
+      "source": "server/server.go#L1112",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1945"
+    },
+    "POST /api/llm/retry-policy": {
+      "method": "POST",
+      "path": "/api/llm/retry-policy",
+      "handler": "pgSaveLLMRetryPolicy",
+      "source": "server/server.go#L1114",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1875"
+    },
+    "POST /api/llm/test": {
+      "method": "POST",
+      "path": "/api/llm/test",
+      "handler": "testLLM",
+      "source": "server/server.go#L911",
+      "kind": "http",
+      "handler_source": "server/server.go#L1587"
+    },
+    "POST /api/mcp": {
+      "method": "POST",
+      "path": "/api/mcp",
+      "handler": "pgSaveMCP",
+      "source": "server/server.go#L1078",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L879"
+    },
+    "POST /api/mcp/{id}/refresh": {
+      "method": "POST",
+      "path": "/api/mcp/{id}/refresh",
+      "handler": "pgRefreshMCP",
+      "source": "server/server.go#L1081",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L924"
+    },
+    "POST /api/notify/channels": {
+      "method": "POST",
+      "path": "/api/notify/channels",
+      "handler": "notifyCreateChannel",
+      "source": "server/server.go#L1007",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L178"
+    },
+    "POST /api/notify/channels/{id}/test": {
+      "method": "POST",
+      "path": "/api/notify/channels/{id}/test",
+      "handler": "notifyTestChannel",
+      "source": "server/server.go#L1010",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L399"
+    },
+    "POST /api/notify/deliveries/{id}/retry": {
+      "method": "POST",
+      "path": "/api/notify/deliveries/{id}/retry",
+      "handler": "notifyRetryDelivery",
+      "source": "server/server.go#L1012",
+      "kind": "http",
+      "handler_source": "server/notify_api.go#L491"
+    },
+    "POST /api/repeater/send": {
+      "method": "POST",
+      "path": "/api/repeater/send",
+      "handler": "sendRepeater",
+      "source": "server/repeater.go#L59",
+      "kind": "http",
+      "handler_source": "server/repeater.go#L62"
+    },
+    "POST /api/schedules": {
+      "method": "POST",
+      "path": "/api/schedules",
+      "handler": "createSchedule",
+      "source": "server/server.go#L830",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L110"
+    },
+    "POST /api/schedules/{id}/pause": {
+      "method": "POST",
+      "path": "/api/schedules/{id}/pause",
+      "handler": "pauseSchedule",
+      "source": "server/server.go#L836",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L184"
+    },
+    "POST /api/schedules/{id}/resume": {
+      "method": "POST",
+      "path": "/api/schedules/{id}/resume",
+      "handler": "resumeSchedule",
+      "source": "server/server.go#L837",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L187"
+    },
+    "POST /api/schedules/{id}/run-now": {
+      "method": "POST",
+      "path": "/api/schedules/{id}/run-now",
+      "handler": "runScheduleNow",
+      "source": "server/server.go#L838",
+      "kind": "http",
+      "handler_source": "server/schedules.go#L191"
+    },
+    "POST /api/settings/proxy-pool/import": {
+      "method": "POST",
+      "path": "/api/settings/proxy-pool/import",
+      "handler": "importProxyPool",
+      "source": "server/server.go#L1017",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L754"
+    },
+    "POST /api/settings/proxy-pool/test-all": {
+      "method": "POST",
+      "path": "/api/settings/proxy-pool/test-all",
+      "handler": "testAllProxyPool",
+      "source": "server/server.go#L1021",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L1149"
+    },
+    "POST /api/settings/proxy-pool/{id}/activate": {
+      "method": "POST",
+      "path": "/api/settings/proxy-pool/{id}/activate",
+      "handler": "activateProxyPool",
+      "source": "server/server.go#L1022",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L1118"
+    },
+    "POST /api/settings/proxy-pool/{id}/test": {
+      "method": "POST",
+      "path": "/api/settings/proxy-pool/{id}/test",
+      "handler": "testProxyPoolEntry",
+      "source": "server/server.go#L1020",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L1131"
+    },
+    "POST /api/settings/proxy/test": {
+      "method": "POST",
+      "path": "/api/settings/proxy/test",
+      "handler": "testEgressProxy",
+      "source": "server/server.go#L1015",
+      "kind": "http",
+      "handler_source": "server/egress_probe.go#L341"
+    },
+    "POST /api/settings/python/detect": {
+      "method": "POST",
+      "path": "/api/settings/python/detect",
+      "handler": "pgDetectPython",
+      "source": "server/server.go#L1074",
+      "kind": "http",
+      "handler_source": "server/server.go#L3751"
+    },
+    "POST /api/settings/web-search/test": {
+      "method": "POST",
+      "path": "/api/settings/web-search/test",
+      "handler": "testWebSearch",
+      "source": "server/server.go#L1013",
+      "kind": "http",
+      "handler_source": "server/server.go#L4158"
+    },
+    "POST /api/side-questions/{requestID}/cancel": {
+      "method": "POST",
+      "path": "/api/side-questions/{requestID}/cancel",
+      "handler": "cancelSideRequest",
+      "source": "server/side_questions.go#L682",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L926"
+    },
+    "POST /api/skills": {
+      "method": "POST",
+      "path": "/api/skills",
+      "handler": "fsCreateSkill",
+      "source": "server/server.go#L1090",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1091"
+    },
+    "POST /api/skills/upload": {
+      "method": "POST",
+      "path": "/api/skills/upload",
+      "handler": "fsUploadSkill",
+      "source": "server/server.go#L1091",
+      "kind": "multipart",
+      "handler_source": "server/server_mgmt.go#L1308",
+      "note": "One ZIP in multipart field file; optional overwrite=true."
+    },
+    "POST /api/skills/{name}/dirs": {
+      "method": "POST",
+      "path": "/api/skills/{name}/dirs",
+      "handler": "fsCreateDir",
+      "source": "server/server.go#L1096",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1669"
+    },
+    "POST /api/sync/scopesentry/datasource": {
+      "method": "POST",
+      "path": "/api/sync/scopesentry/datasource",
+      "handler": "syncSSDatasource",
+      "source": "server/server.go#L1084",
+      "kind": "http",
+      "handler_source": "server/sync_scopesentry.go#L118"
+    },
+    "POST /api/sync/scopesentry/sync": {
+      "method": "POST",
+      "path": "/api/sync/scopesentry/sync",
+      "handler": "syncSSRun",
+      "source": "server/server.go#L1087",
+      "kind": "http",
+      "handler_source": "server/sync_scopesentry.go#L258"
+    },
+    "POST /api/task-archives/delete/batch": {
+      "method": "POST",
+      "path": "/api/task-archives/delete/batch",
+      "handler": "deleteTaskArchivesBatch",
+      "source": "server/server.go#L865",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L589"
+    },
+    "POST /api/task-archives/restore/batch": {
+      "method": "POST",
+      "path": "/api/task-archives/restore/batch",
+      "handler": "restoreTaskArchivesBatch",
+      "source": "server/server.go#L863",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L585"
+    },
+    "POST /api/task-archives/{id}/restore": {
+      "method": "POST",
+      "path": "/api/task-archives/{id}/restore",
+      "handler": "queueTaskArchiveRestore",
+      "source": "server/server.go#L862",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L483"
+    },
+    "POST /api/task-categories": {
+      "method": "POST",
+      "path": "/api/task-categories",
+      "handler": "pgCreateTaskCategory",
+      "source": "server/server.go#L840",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L70"
+    },
+    "POST /api/task-templates": {
+      "method": "POST",
+      "path": "/api/task-templates",
+      "handler": "pgCreateTaskTemplate",
+      "source": "server/server.go#L845",
+      "kind": "http",
+      "handler_source": "server/task_templates.go#L124"
+    },
+    "POST /api/tasks": {
+      "method": "POST",
+      "path": "/api/tasks",
+      "handler": "createTask",
+      "source": "server/server.go#L828",
+      "kind": "http",
+      "handler_source": "server/server.go#L1725",
+      "note": "JSON with description, goal, and optional name, company_ids, llm_profile_ids, timeout_seconds, intercept_rules and schedule."
+    },
+    "POST /api/tasks/archive/batch": {
+      "method": "POST",
+      "path": "/api/tasks/archive/batch",
+      "handler": "queueTaskArchivesBatch",
+      "source": "server/server.go#L861",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L513"
+    },
+    "POST /api/tasks/category/batch": {
+      "method": "POST",
+      "path": "/api/tasks/category/batch",
+      "handler": "updateTasksCategoryBatch",
+      "source": "server/server.go#L843",
+      "kind": "http",
+      "handler_source": "server/task_categories.go#L181"
+    },
+    "POST /api/tasks/control/batch": {
+      "method": "POST",
+      "path": "/api/tasks/control/batch",
+      "handler": "controlTasksBatch",
+      "source": "server/server.go#L857",
+      "kind": "http",
+      "handler_source": "server/task_control.go#L290"
+    },
+    "POST /api/tasks/{id}/archive": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/archive",
+      "handler": "queueTaskArchive",
+      "source": "server/server.go#L860",
+      "kind": "http",
+      "handler_source": "server/task_archives.go#L467"
+    },
+    "POST /api/tasks/{id}/asset-mapping": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/asset-mapping",
+      "handler": "taskAssetMapping",
+      "source": "server/server.go#L873",
+      "kind": "http",
+      "handler_source": "server/task_asset_mapping.go#L16"
+    },
+    "POST /api/tasks/{id}/assets": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/assets",
+      "handler": "attachTaskAssets",
+      "source": "server/server.go#L876",
+      "kind": "http",
+      "handler_source": "server/task_assets.go#L24"
+    },
+    "POST /api/tasks/{id}/chat/side-questions": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/chat/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "POST /api/tasks/{id}/chat/stop": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/chat/stop",
+      "handler": "stopChat",
+      "source": "server/server.go#L1029",
+      "kind": "http",
+      "handler_source": "server/server.go#L4405"
+    },
+    "POST /api/tasks/{id}/constraints": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/constraints",
+      "handler": "addConstraint",
+      "source": "server/server.go#L897",
+      "kind": "http",
+      "handler_source": "server/constraints_api.go#L49"
+    },
+    "POST /api/tasks/{id}/control": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/control",
+      "handler": "control",
+      "source": "server/server.go#L900",
+      "kind": "http",
+      "handler_source": "server/server.go#L1335",
+      "note": "JSON {\"action\":\"pause\"} or {\"action\":\"resume\"}."
+    },
+    "POST /api/tasks/{id}/goals": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/goals",
+      "handler": "addGoal",
+      "source": "server/server.go#L893",
+      "kind": "http",
+      "handler_source": "server/goals_api.go#L34"
+    },
+    "POST /api/tasks/{id}/intelligence/{intelID}/credentials/retry": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intelligence/{intelID}/credentials/retry",
+      "handler": "retryCredentials",
+      "source": "server/server.go#L987",
+      "kind": "http",
+      "handler_source": "server/credentials.go#L403"
+    },
+    "POST /api/tasks/{id}/intents/rerun-blocked": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intents/rerun-blocked",
+      "handler": "rerunBlocked",
+      "source": "server/server.go#L906",
+      "kind": "http",
+      "handler_source": "server/server.go#L1459"
+    },
+    "POST /api/tasks/{id}/intents/{iid}/control": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intents/{iid}/control",
+      "handler": "controlIntent",
+      "source": "server/server.go#L903",
+      "kind": "http",
+      "handler_source": "server/server.go#L1363"
+    },
+    "POST /api/tasks/{id}/intents/{iid}/messages": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intents/{iid}/messages",
+      "handler": "sendWorkerMessage",
+      "source": "server/server.go#L904",
+      "kind": "http",
+      "handler_source": "server/intent_intervention.go#L38"
+    },
+    "POST /api/tasks/{id}/intents/{iid}/rerun": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intents/{iid}/rerun",
+      "handler": "rerunIntent",
+      "source": "server/server.go#L905",
+      "kind": "http",
+      "handler_source": "server/server.go#L1415"
+    },
+    "POST /api/tasks/{id}/intents/{iid}/side-questions": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+      "handler": "handleSideQuestions",
+      "source": "server/side_questions.go#L673",
+      "kind": "http",
+      "handler_source": "server/side_questions.go#L685"
+    },
+    "POST /api/tasks/{id}/intercept-rules": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intercept-rules",
+      "handler": "taskInterceptCreateRule",
+      "source": "server/server.go#L853",
+      "kind": "http",
+      "handler_source": "server/task_intercept.go#L80"
+    },
+    "POST /api/tasks/{id}/intercept-rules/{rid}/toggle": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/intercept-rules/{rid}/toggle",
+      "handler": "taskInterceptToggleRule",
+      "source": "server/server.go#L856",
+      "kind": "http",
+      "handler_source": "server/task_intercept.go#L162"
+    },
+    "POST /api/tasks/{id}/proxy/test": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/proxy/test",
+      "handler": "testTaskProxy",
+      "source": "server/server.go#L1023",
+      "kind": "http",
+      "handler_source": "server/proxy_autoresume.go#L420"
+    },
+    "POST /api/tasks/{id}/scope": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/scope",
+      "handler": "taskScopeAdd",
+      "source": "server/server.go#L890",
+      "kind": "http",
+      "handler_source": "server/server.go#L2141"
+    },
+    "POST /api/tasks/{id}/topology-mapping": {
+      "method": "POST",
+      "path": "/api/tasks/{id}/topology-mapping",
+      "handler": "taskAssetMapping",
+      "source": "server/server.go#L870",
+      "kind": "http",
+      "handler_source": "server/task_asset_mapping.go#L16"
+    },
+    "POST /api/tools/custom": {
+      "method": "POST",
+      "path": "/api/tools/custom",
+      "handler": "pgCreateCustomTool",
+      "source": "server/server.go#L1070",
+      "kind": "http",
+      "handler_source": "server/customtool.go#L46"
+    },
+    "POST /api/tools/custom/test": {
+      "method": "POST",
+      "path": "/api/tools/custom/test",
+      "handler": "pgTestCustomTool",
+      "source": "server/server.go#L1071",
+      "kind": "http",
+      "handler_source": "server/customtool.go#L147"
+    },
+    "POST /api/tools/{key}/reset": {
+      "method": "POST",
+      "path": "/api/tools/{key}/reset",
+      "handler": "pgResetTool",
+      "source": "server/server.go#L1075",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L825"
+    },
+    "POST /api/update/apply": {
+      "method": "POST",
+      "path": "/api/update/apply",
+      "handler": "updateApply",
+      "source": "server/server.go#L823",
+      "kind": "http",
+      "handler_source": "server/update.go#L276",
+      "note": "Applies the Web binary update. It does not replace the Docker image."
+    },
+    "POST /api/update/rollback": {
+      "method": "POST",
+      "path": "/api/update/rollback",
+      "handler": "updateRollback",
+      "source": "server/server.go#L824",
+      "kind": "http",
+      "handler_source": "server/update.go#L327"
+    },
+    "POST /api/visibility/skill/toggle": {
+      "method": "POST",
+      "path": "/api/visibility/skill/toggle",
+      "handler": "pgToggleSkillVisibility",
+      "source": "server/server.go#L1107",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1737"
+    },
+    "POST /api/visibility/toggle": {
+      "method": "POST",
+      "path": "/api/visibility/toggle",
+      "handler": "pgToggleVisibility",
+      "source": "server/server.go#L1104",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1774"
+    },
+    "POST /api/workspace/mkdir": {
+      "method": "POST",
+      "path": "/api/workspace/mkdir",
+      "handler": "wsMkdir",
+      "source": "server/server.go#L884",
+      "kind": "http",
+      "handler_source": "server/workspace.go#L169"
+    },
+    "POST /api/workspace/upload": {
+      "method": "POST",
+      "path": "/api/workspace/upload",
+      "handler": "wsUpload",
+      "source": "server/server.go#L888",
+      "kind": "multipart",
+      "handler_source": "server/workspace.go#L375",
+      "note": "Query path is the destination directory; multipart field file may repeat."
+    },
+    "POST /api/workspace/write": {
+      "method": "POST",
+      "path": "/api/workspace/write",
+      "handler": "wsWrite",
+      "source": "server/server.go#L883",
+      "kind": "http",
+      "handler_source": "server/workspace.go#L139"
+    },
+    "PUT /api/agents/{key}/config": {
+      "method": "PUT",
+      "path": "/api/agents/{key}/config",
+      "handler": "pgSaveAgentConfig",
+      "source": "server/server.go#L1051",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L360"
+    },
+    "PUT /api/agents/{key}/prompt": {
+      "method": "PUT",
+      "path": "/api/agents/{key}/prompt",
+      "handler": "pgSavePrompt",
+      "source": "server/server.go#L1052",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L528"
+    },
+    "PUT /api/agents/{key}/visibility": {
+      "method": "PUT",
+      "path": "/api/agents/{key}/visibility",
+      "handler": "pgSetAgentVisibility",
+      "source": "server/server.go#L1066",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L733"
+    },
+    "PUT /api/agents/{key}/wrapup": {
+      "method": "PUT",
+      "path": "/api/agents/{key}/wrapup",
+      "handler": "pgSaveWrapup",
+      "source": "server/server.go#L1054",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L573"
+    },
+    "PUT /api/agents/{key}/wrapup/task-timeout": {
+      "method": "PUT",
+      "path": "/api/agents/{key}/wrapup/task-timeout",
+      "handler": "pgSaveTaskTimeoutWrapup",
+      "source": "server/server.go#L1056",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L628"
+    },
+    "PUT /api/asset-intercept/rules/{id}": {
+      "method": "PUT",
+      "path": "/api/asset-intercept/rules/{id}",
+      "handler": "assetInterceptUpdateRule",
+      "source": "server/server.go#L1129",
+      "kind": "http",
+      "handler_source": "server/asset_intercept.go#L55"
+    },
+    "PUT /api/exploration/finding-cases/{id}/report": {
+      "method": "PUT",
+      "path": "/api/exploration/finding-cases/{id}/report",
+      "handler": "updateCaseReport",
+      "source": "server/server.go#L935",
+      "kind": "http",
+      "handler_source": "server/finding_cases.go#L242"
+    },
+    "PUT /api/exploration/findings/{id}/traffic/order": {
+      "method": "PUT",
+      "path": "/api/exploration/findings/{id}/traffic/order",
+      "handler": "editFindingTraffic",
+      "source": "server/finding_traffic.go#L88",
+      "kind": "http",
+      "handler_source": "server/finding_traffic.go#L185"
+    },
+    "PUT /api/intercept/judge": {
+      "method": "PUT",
+      "path": "/api/intercept/judge",
+      "handler": "interceptSetJudgeConfig",
+      "source": "server/server.go#L1143",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L495"
+    },
+    "PUT /api/intercept/rules/{id}": {
+      "method": "PUT",
+      "path": "/api/intercept/rules/{id}",
+      "handler": "interceptUpdateRule",
+      "source": "server/server.go#L1122",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L183"
+    },
+    "PUT /api/intercept/tool-config": {
+      "method": "PUT",
+      "path": "/api/intercept/tool-config",
+      "handler": "interceptSetToolConfig",
+      "source": "server/server.go#L1141",
+      "kind": "http",
+      "handler_source": "server/intercept.go#L468"
+    },
+    "PUT /api/settings": {
+      "method": "PUT",
+      "path": "/api/settings",
+      "handler": "putSettings",
+      "source": "server/server.go#L1002",
+      "kind": "http",
+      "handler_source": "server/server.go#L3767"
+    },
+    "PUT /api/settings/basic-auth": {
+      "method": "PUT",
+      "path": "/api/settings/basic-auth",
+      "handler": "saveBasicAuthSettings",
+      "source": "server/server.go#L808",
+      "kind": "http",
+      "handler_source": "server/basic_auth.go#L222",
+      "tool": "artex_configure_basic_auth"
+    },
+    "PUT /api/settings/proxy-pool/{id}": {
+      "method": "PUT",
+      "path": "/api/settings/proxy-pool/{id}",
+      "handler": "updateProxyPool",
+      "source": "server/server.go#L1018",
+      "kind": "http",
+      "handler_source": "server/proxy_pool.go#L883"
+    },
+    "PUT /api/skills/{name}/files/{file...}": {
+      "method": "PUT",
+      "path": "/api/skills/{name}/files/{file...}",
+      "handler": "fsWriteFile",
+      "source": "server/server.go#L1100",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1633"
+    },
+    "PUT /api/skills/{name}/meta": {
+      "method": "PUT",
+      "path": "/api/skills/{name}/meta",
+      "handler": "fsUpdateSkillMeta",
+      "source": "server/server.go#L1095",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L1161"
+    },
+    "PUT /api/tasks/{id}/intercept-rules/{rid}": {
+      "method": "PUT",
+      "path": "/api/tasks/{id}/intercept-rules/{rid}",
+      "handler": "taskInterceptUpdateRule",
+      "source": "server/server.go#L854",
+      "kind": "http",
+      "handler_source": "server/task_intercept.go#L107"
+    },
+    "PUT /api/tasks/{id}/llm": {
+      "method": "PUT",
+      "path": "/api/tasks/{id}/llm",
+      "handler": "updateTaskLLMProfiles",
+      "source": "server/server.go#L901",
+      "kind": "http",
+      "handler_source": "server/server.go#L1847"
+    },
+    "PUT /api/tools/custom/{key}": {
+      "method": "PUT",
+      "path": "/api/tools/custom/{key}",
+      "handler": "pgUpdateCustomTool",
+      "source": "server/server.go#L1072",
+      "kind": "http",
+      "handler_source": "server/customtool.go#L83"
+    },
+    "PUT /api/tools/{key}": {
+      "method": "PUT",
+      "path": "/api/tools/{key}",
+      "handler": "pgUpdateTool",
+      "source": "server/server.go#L1069",
+      "kind": "http",
+      "handler_source": "server/server_mgmt.go#L789"
+    },
+    "PUT /api/update/settings": {
+      "method": "PUT",
+      "path": "/api/update/settings",
+      "handler": "putUpdateSettings",
+      "source": "server/server.go#L821",
+      "kind": "http",
+      "handler_source": "server/update_settings.go#L52"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+[project]
+name = "artex-web-mcp"
+version = "0.1.0"
+description = "Stdio MCP for the nu11b1ade ARTEX Web API"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.29.0", "httpx==0.28.1"]
+
+[project.optional-dependencies]
+browser = ["playwright==1.62.0"]
+
+[tool.uv]
+package = false
